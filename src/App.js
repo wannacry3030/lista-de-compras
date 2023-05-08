@@ -1,8 +1,23 @@
 import "./styles.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
   const [items, setItems] = useState([]);
+
+  //adicionando um hook para o local storage
+  useEffect(() => {
+    const storedItems = JSON.parse(localStorage.getItem("shoppingListItems"));
+    if (storedItems) {
+      setItems(storedItems);
+    }
+  }, []);
+
+  //salvando os items no localstorage antes de sair da pagina
+  useEffect(() => {
+    window.addEventListener("beforeunload", () => {
+      localStorage.setItem("shoppingListItems", JSON.stringify(items));
+    });
+  }, [items]);
 
   function onRemoveItem(itemToRemove) {
     const newItems = items.filter((item) => {
