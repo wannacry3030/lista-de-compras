@@ -1,4 +1,4 @@
-#app simples utilizando conceitos de hook do react, por exemplo:
+app simples utilizando conceitos de hook do react, por exemplo:
 
 #atualizando listas com useState
 
