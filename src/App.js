@@ -45,11 +45,11 @@ export default function App() {
 }
 
 //deletando items
-function Item({ itemn, onRemoveItem }) {
+function Item({ item, onRemoveItem }) {
   return (
     <li>
-      {Item}
-      <button className="delete" onClick={() => onRemoveItem(Item)}>
+      {item}
+      <button className="delete" onClick={() => onRemoveItem(item)}>
         x
       </button>
     </li>
