@@ -21,20 +21,37 @@ export default function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Lista de compras</h1>
+      <div className="shopping-list">
+        <h2>Items para comprar</h2>
+        <form onSubmit={onSubmit}>
+          <input
+            type="text"
+            name="item"
+            placeholder="adicione um item"
+            required
+          />
+          <button>Adicionar</button>
+        </form>
+        <ul>
+          {items.map((item, index) => (
+            <item onRemoveItem={onRemoveItem} key={item + index} item={item} />
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
+
+//deletando items
+function Item({ itemn, onRemoveItem }) {
+  return (
+    <li>
+      {Item}
+      <button className="delete" onClick={() => onRemoveItem(Item)}>
+        x
+      </button>
+    </li>
   );
 }
